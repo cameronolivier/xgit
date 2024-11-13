@@ -11,6 +11,10 @@ This is a boilerplate project for building CLI tools using TypeScript. It includ
 - Commands to easily publish your CLI tool to NPM.
 - Guidance on creating and pushing a GitHub repository.
 
+## Hat-Tips
+This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https://x.com/mattpocockuk) on [How to Create an NPM package]
+(https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup. 
+
 ## Project Structure
 ```text
 my-cli-tool/
