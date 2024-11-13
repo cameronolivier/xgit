@@ -1,7 +1,5 @@
 import { execSync } from 'child_process';
 
-import fuzzy from 'fuzzy';
-
 export function initBranchCommand(branchName: string) {
   const branch = `feature/${branchName}`;
   try {

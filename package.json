@@ -26,7 +26,7 @@
     "git:pre-push": "npm run code:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "lint:check": "eslint . --ext .ts",
+    "lint:check": "eslint .",
     "code:check": "npm run prettier:check && npm run lint:check",
     "code:format": "npm run prettier:format",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
