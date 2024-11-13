@@ -1,4 +1,4 @@
-# My CLI Tool Boilerplate
+# CLI Boilerplate
 
 ## Overview
 
@@ -19,17 +19,11 @@ This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https
 ## Project Structure
 
 ```text
-my-cli-tool/
+cli-boilerplate/
 ├── src/
-│   ├── commands/
-│   └── utils/
-├── .gitignore
-├── .eslintrc.json
-├── tsconfig.json
-├── package.json
-├── prettier.config.js
-├── README.md
-└── LICENSE
+│   ├── commands/ <- all commands should go here
+│   ├── utils/ <- you'll find helpful utils for dealing with the command
+│   └── <Structure the rest of the project as you see fit>
 ```
 
 - **src/commands/**: This folder is where you define the core command functions, such as branch creation or commit management.
