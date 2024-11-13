@@ -34,8 +34,8 @@ cli-boilerplate/
 1. **Clone the Repository**
 
    ```bash
-   git clone <repository-url>
-   cd my-cli-tool
+   git clone <https://github.com/cameronolivier/cli-boilerplate> <your project name>
+   cd <your project name>
    ```
 
 2. **Install Dependencies**
@@ -47,10 +47,11 @@ cli-boilerplate/
 3. **Start Development**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   - This runs the CLI using `ts-node`, allowing you to develop and test your commands without needing to rebuild.
+   - This runs the CLI using `tsup` in watch mode, allowing you to develop and test your commands without needing to
+     rebuild.
 
 4. **Build the Project**
 
@@ -65,6 +66,13 @@ cli-boilerplate/
    npm link
    ```
    - This allows you to use the command globally as `my-cli` while still making changes locally.
+6. **Install Locally**
+
+```bash
+npm run install-global
+```
+
+- This will install the package allowing you to test it outside of the project directory, but you will need to run `npm run build` to see changes.
 
 ## Best Practices
 
