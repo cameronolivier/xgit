@@ -1,14 +1,26 @@
 {
   "name": "cli-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A CLI Boilerplate for quickly scaffolding CLI tools",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "files": ["dist"],
+  "type": "module",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Cameron Olivier <cameronolivier@gmail.com> (https://olvr.cc)",
+  "bugs": {
+    "url": "https://github.com/cameronolivier/cli-boilerplate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cameronolivier/cli-boilerplate.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
+    "build": "tsc",
+    "ci": "npm run build && npm run check-format"
+  },
   "dependencies": {
     "chalk": "^5.0.0",
     "commander": "^12.1.0",
