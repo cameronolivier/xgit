@@ -14,8 +14,7 @@ This is a boilerplate project for building CLI tools using TypeScript. It includ
 
 ## Hat-Tips
 
-This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https://x.com/mattpocockuk) on [How to Create an NPM package]
-(https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup.
+This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https://x.com/mattpocockuk) on [How to Create an NPM package](https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup.
 
 ## Project Structure
 
