@@ -37,7 +37,7 @@
     "start": "node dist/index.js",
     "init": "npm run build && npm link",
     "install-global": "npm run build && npm i -g",
-    "ci": "npm run build && npm run prettier:check && npm run check-exports && npm run lint && npm run test",
+    "ci": "npm run build && npm run code:check && npm run check-exports && npm run test",
     "local-release": "changeset version && changeset publish",
     "prepublishOnly": "npm run ci",
     "prepare": "husky"
