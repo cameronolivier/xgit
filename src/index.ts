@@ -27,4 +27,6 @@ program
   .description('Find and checkout a branch')
   .action(checkoutBranch);
 
+program.command('c').description('Create a conventional commit').action();
+
 program.parse(process.argv);
