@@ -4,7 +4,7 @@ import inquirer from 'inquirer';
 
 import { description, name, version } from '../package.json';
 
-import { initBranchCommand, initCommitCommand } from './commands/branch.js';
+import { initBranchCommand, initCommitCommand } from './commands/example.js';
 
 const program = new Command();
 
