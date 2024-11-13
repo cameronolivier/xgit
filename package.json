@@ -2,11 +2,6 @@
   "name": "cli-boilerplate",
   "version": "0.1.0",
   "description": "A CLI Boilerplate for quickly scaffolding CLI tools",
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
-  "type": "module",
   "keywords": [],
   "author": "Cameron Olivier <cameronolivier@gmail.com> (https://olvr.cc)",
   "bugs": {
@@ -17,6 +12,15 @@
     "url": "git+https://github.com/cameronolivier/cli-boilerplate.git"
   },
   "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "my-cli": "dist/index.js"
+  },
   "scripts": {
     "git:pre-commit": "lint-staged",
     "git:pre-push": "npm run code:check",
@@ -26,9 +30,13 @@
     "code:check": "npm run prettier:check && npm run lint:check",
     "code:format": "npm run prettier:format",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
-    "build": "tsc",
-    "dev": "vitest",
     "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "init": "npm run build && npm link",
+    "install-global": "npm run build && npm i -g",
     "ci": "npm run build && npm run prettier:check && npm run check-exports && npm run lint && npm run test",
     "local-release": "changeset version && changeset publish",
     "prepublishOnly": "npm run ci",
@@ -52,6 +60,7 @@
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "3.3.3",
+    "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.14.0",
     "vitest": "^2.1.4"
