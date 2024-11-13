@@ -1,6 +1,7 @@
 # My CLI Tool Boilerplate
 
 ## Overview
+
 This is a boilerplate project for building CLI tools using TypeScript. It includes:
 
 - TypeScript configuration for building modern Node.js applications.
@@ -12,10 +13,12 @@ This is a boilerplate project for building CLI tools using TypeScript. It includ
 - Guidance on creating and pushing a GitHub repository.
 
 ## Hat-Tips
+
 This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https://x.com/mattpocockuk) on [How to Create an NPM package]
-(https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup. 
+(https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup.
 
 ## Project Structure
+
 ```text
 my-cli-tool/
 ├── src/
@@ -36,33 +39,39 @@ my-cli-tool/
 ## Getting Started
 
 1. **Clone the Repository**
+
    ```bash
    git clone <repository-url>
    cd my-cli-tool
    ```
 
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start Development**
+
    ```bash
    npm start
    ```
-    - This runs the CLI using `ts-node`, allowing you to develop and test your commands without needing to rebuild.
+
+   - This runs the CLI using `ts-node`, allowing you to develop and test your commands without needing to rebuild.
 
 4. **Build the Project**
+
    ```bash
    npm run build
    ```
-    - This will compile your TypeScript code to JavaScript in the `dist` directory.
+
+   - This will compile your TypeScript code to JavaScript in the `dist` directory.
 
 5. **Link Locally**
    ```bash
    npm link
    ```
-    - This allows you to use the command globally as `my-cli` while still making changes locally.
+   - This allows you to use the command globally as `my-cli` while still making changes locally.
 
 ## Best Practices
 
@@ -71,12 +80,15 @@ my-cli-tool/
 - **Prettier & ESLint**: Before committing your code, always run `npm run format` to ensure consistent code style.
 
 ## Adding New Commands
+
 To add a new command:
+
 1. Create a new file in `src/commands/`.
 2. Define your command logic there.
 3. Register the new command in `src/index.ts` using the `commander` API.
 
 Example:
+
 ```typescript
 program
   .command('new-command')
@@ -87,18 +99,23 @@ program
 ```
 
 ## Publishing to NPM
+
 To publish your CLI as an NPM package:
+
 1. **Build the Project**: Run `npm run build`.
 2. **Login to NPM**: Run `npm login` and enter your credentials.
 3. **Publish**: Run `npm publish`.
 
 After publishing, your CLI will be available for installation via:
+
 ```bash
 npm install -g my-cli-tool
 ```
 
 ## Creating a GitHub Repository
+
 To initialize a Git repository and push the project to GitHub:
+
 1. **Initialize Git**
    ```bash
    git init
@@ -114,4 +131,5 @@ To initialize a Git repository and push the project to GitHub:
    ```
 
 ## License
+
 Include a `LICENSE` file to specify the licensing terms for your project.
