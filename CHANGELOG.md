@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.0.3
+
+### Patch Changes
+
+- 252a334: Fixing a spelling mistake
+
 ## 1.0.2
 
 ### Patch Changes
