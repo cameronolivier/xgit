@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.2.2
+
+### Patch Changes
+
+- 24a7a1a: Updating the readme documentation
+
 ## 1.2.1
 
 ### Patch Changes
