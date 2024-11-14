@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.1.0
+
+### Minor Changes
+
+- 3302299: renaming the command from xx to xg
+
 ## 1.0.3
 
 ### Patch Changes
