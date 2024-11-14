@@ -19,7 +19,8 @@
     "dist"
   ],
   "bin": {
-    "xg": "dist/index.js"
+    "xg": "dist/index.js",
+    "xgit": "dist/index.js"
   },
   "scripts": {
     "git:pre-commit": "lint-staged",
