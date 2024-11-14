@@ -1,5 +1,12 @@
 # cli-boilerplate
 
+## 1.0.2
+
+### Patch Changes
+
+- 47d1726: adding tests for the config validation utilitiy
+- 0fe1e02: Adding prepare release script to scripts
+
 ## 1.0.1
 
 ### Patch Changes
