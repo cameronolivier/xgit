@@ -1,7 +1,7 @@
 {
-  "name": "cli-boilerplate",
+  "name": "xgit",
   "version": "0.1.0",
-  "description": "A CLI Boilerplate for quickly scaffolding CLI tools",
+  "description": "A CLI tool for asing git flow and conventional commit workflows",
   "keywords": [],
   "author": "Cameron Olivier <cameronolivier@gmail.com> (https://olvr.cc)",
   "bugs": {
