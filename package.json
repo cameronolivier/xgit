@@ -1,6 +1,6 @@
 {
   "name": "@olvrcc/xgit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A CLI tool for assisting git flow and conventional commit workflows",
   "keywords": [],
   "author": "Cameron Olivier <cameronolivier@gmail.com> (https://olvr.cc)",

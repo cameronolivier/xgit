@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.2.0
+
+### Minor Changes
+
+- da8d104: adding an xgit command alongside xg
+
 ## 1.1.0
 
 ### Minor Changes
