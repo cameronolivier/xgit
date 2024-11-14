@@ -12,6 +12,7 @@ program.name(name).description(description).version(version);
 // Register Branch Commands
 program
   .command('b')
+  .alias('branch')
   .argument('<ticketNumber>', 'Ticket number')
   .argument('<branchName>', 'Branch name')
   .option('-f, --feat', 'create a feature branch')
@@ -25,11 +26,13 @@ program
 // Register Commit Commands
 program
   .command('f <searchTerm>')
+  .alias('find')
   .description('Find and checkout a branch')
   .action(checkoutBranch);
 
 program
   .command('c')
+  .alias('commit')
   .description('Create a conventional commit')
   .action(createCommit);
 

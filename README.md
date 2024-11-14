@@ -1,135 +1,92 @@
-# CLI Boilerplate
+# XGIT CLI
+
+Git Flow and Conventional commit CLI Tool.
 
 ## Overview
 
-This is a boilerplate project for building CLI tools using TypeScript. It includes:
-
-- TypeScript configuration for building modern Node.js applications.
-- A basic CLI structure using [commander](https://github.com/tj/commander.js) for handling commands.
-- Interactive prompts via [inquirer](https://github.com/SBoudrias/Inquirer.js).
-- Colorful terminal output via [chalk](https://github.com/chalk/chalk).
-- Coding standards enforced using ESLint and code formatting with Prettier.
-- Commands to easily publish your CLI tool to NPM.
-- Guidance on creating and pushing a GitHub repository.
-
-## Hat-Tips
-
-This boilerplate leans heavily on the fantastic article by [@mattpocockuk](https://x.com/mattpocockuk) on [How to Create an NPM package](https://www.totaltypescript.com/how-to-create-an-npm-package) for the initial setup.
-
-## Project Structure
-
-```text
-cli-boilerplate/
-├── src/
-│   ├── commands/ <- all commands should go here
-│   ├── utils/ <- you'll find helpful utils for dealing with the command
-│   └── <Structure the rest of the project as you see fit>
-```
-
-- **src/commands/**: This folder is where you define the core command functions, such as branch creation or commit management.
-- **src/utils/**: Helper utility functions, like fuzzy searching, go here.
+A couple of command tools for managing git commits and branches following a specific flow model.
 
 ## Getting Started
 
-1. **Clone the Repository**
-
-   ```bash
-   git clone <https://github.com/cameronolivier/cli-boilerplate> <your project name>
-   cd <your project name>
-   ```
-
-2. **Install Dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start Development**
-
-   ```bash
-   npm run dev
-   ```
-
-   - This runs the CLI using `tsup` in watch mode, allowing you to develop and test your commands without needing to
-     rebuild.
-
-4. **Build the Project**
-
-   ```bash
-   npm run build
-   ```
-
-   - This will compile your TypeScript code to JavaScript in the `dist` directory.
-
-5. **Link Locally**
-   ```bash
-   npm link
-   ```
-   - This allows you to use the command globally as `my-cli` while still making changes locally.
-6. **Install Locally**
+1. Install the package globally
 
 ```bash
-npm run install-global
+npm install -g @olvrcc/xgit@latest
 ```
 
-- This will install the package allowing you to test it outside of the project directory, but you will need to run `npm run build` to see changes.
+2. Create an `xgitrc.json` file in your project. You can set the following values:
 
-## Best Practices
-
-- **Command Organization**: Place core commands in `src/commands/`. Use descriptive names for your files to ensure clarity (e.g., `branch.ts` for branch-related commands).
-- **Utilities**: Keep reusable utility functions in `src/utils/`. This promotes modularity and helps keep your command functions clean.
-- **Prettier & ESLint**: Before committing your code, always run `npm run format` to ensure consistent code style.
-
-## Adding New Commands
-
-To add a new command:
-
-1. Create a new file in `src/commands/`.
-2. Define your command logic there.
-3. Register the new command in `src/index.ts` using the `commander` API.
-
-Example:
-
-```typescript
-program
-  .command('new-command')
-  .description('Description of the new command')
-  .action(() => {
-    // Command logic
-  });
+```json
+{
+  "project": "YOUR_JIRA_PROJECT_SLUG <- this is the only required field",
+  "feat": "Set the value you'd want to prefix for a 'feat' branch",
+  "bug": "Set the value you'd want to prefix for a 'bug' branch",
+  "hotfix": "Set the value you'd want to prefix for a 'hotfix' branch",
+  "release": "Set the value you'd want to prefix for a 'release' branch",
+  "docs": "Set the value you'd want to prefix a for a 'docs' branch"
+}
 ```
 
-## Publishing to NPM
+## Using the CLI:
 
-To publish your CLI as an NPM package:
+## Available Tools & Usage:
 
-1. **Build the Project**: Run `npm run build`.
-2. **Login to NPM**: Run `npm login` and enter your credentials.
-3. **Publish**: Run `npm publish`.
+### Create Branch
 
-After publishing, your CLI will be available for installation via:
+It's designed to assist with creating branches that follow the git flow method along with Jira or similar
+integration, given a Jira project code of `PROJ`, you can do the following:
+Each branch type can be set using the following flags:
 
-```bash
-npm install -g my-cli-tool
+- `-f` for feature
+- `-b` for bug
+- `-h` for hotfix
+- `-r` for release
+- `-d` for docs
+
+#### Command: 'branch' or 'b':
+
+```shell
+ $ xgit b <branch type flag> <task number> <branch name>
 ```
 
-## Creating a GitHub Repository
+#### Examples:
 
-To initialize a Git repository and push the project to GitHub:
+```shell
+ $ xgit b 123 "a unique task" // PROJ-123_a_unique_task <- not setting a flag will not prefix the branch
+ $ xgit b -f 123 "a unique task" // feature/PROJ-123_a_unique_task
+ $ xgit branch -h 123 "a unique task" // hotfix/PROJ-123_a_unique_task
+```
 
-1. **Initialize Git**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
-2. **Create a new repository on GitHub** (use GitHub interface or CLI).
-3. **Add GitHub Remote and Push**
-   ```bash
-   git remote add origin https://github.com/yourusername/my-cli-tool.git
-   git branch -M main
-   git push -u origin main
-   ```
+### Committing work
+
+This will help committing work following a conventional commit approach and has a small wizard that walks you through the process.
+
+#### Command: 'commit' or 'c':
+
+```shell
+ $ xgit c
+ $ xgit commit
+```
+
+### Checking out a branch via fuzzy search
+
+You are able to checkout a branch (so long as it's local) using:
+
+```shell
+xgit f <fuzzy search>
+```
+
+#### Example:
+
+If you had a branch `feat/JIRA-123_some_work`, you can check it out without having to type through the `feat/JIRA-`
+before autocomplete would kick in. Just do this and you'll check out the branch
+
+```shell
+xgit f 123
+```
+
+If there is only a single result it will automatically check the branch out If there are multiple branches returned
+the tool will pop up the list and you can select the branch you want to check out and it'll check it out for you.
 
 ## License
 
