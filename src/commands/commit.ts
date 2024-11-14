@@ -3,8 +3,6 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { simpleGit, type SimpleGit } from 'simple-git';
 
-import { checkoutBranch } from './branch.js';
-
 const git: SimpleGit = simpleGit();
 
 export const createCommit = async () => {
