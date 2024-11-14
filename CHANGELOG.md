@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.2.1
+
+### Patch Changes
+
+- 078a728: updating the instructions around selecting files to commit"
+
 ## 1.2.0
 
 ### Minor Changes
