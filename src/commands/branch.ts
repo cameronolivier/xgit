@@ -1,12 +1,12 @@
 import chalk from 'chalk';
 import fuzzy from 'fuzzy';
 import inquirer from 'inquirer';
-import { CleanOptions, simpleGit, type SimpleGit } from 'simple-git';
+import { simpleGit, type SimpleGit } from 'simple-git';
 
 import type { BranchTypes } from '../modules/Config/Config.schema.js';
 import { getConfig, validateConfig } from '../modules/Config/Config.utils.js';
 
-const git: SimpleGit = simpleGit().clean(CleanOptions.FORCE);
+const git: SimpleGit = simpleGit();
 
 export const createBranch = async (
   ticketNumber: string,

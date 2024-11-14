@@ -43,6 +43,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.1.0",
     "chalk": "^5.0.0",
     "commander": "^12.1.0",
     "fuzzy": "^0.1.3",

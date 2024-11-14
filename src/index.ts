@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { description, name, version } from '../package.json';
 
 import { checkoutBranch, createBranch } from './commands/branch.js';
+import { createCommit } from './commands/commit.js';
 
 const program = new Command();
 
@@ -27,6 +28,9 @@ program
   .description('Find and checkout a branch')
   .action(checkoutBranch);
 
-program.command('c').description('Create a conventional commit').action();
+program
+  .command('c')
+  .description('Create a conventional commit')
+  .action(createCommit);
 
 program.parse(process.argv);

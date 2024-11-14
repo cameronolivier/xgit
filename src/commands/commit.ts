@@ -1,8 +1,11 @@
+import { checkbox } from '@inquirer/prompts';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { CleanOptions, simpleGit, type SimpleGit } from 'simple-git';
+import { simpleGit, type SimpleGit } from 'simple-git';
 
-const git: SimpleGit = simpleGit().clean(CleanOptions.FORCE);
+import { checkoutBranch } from './branch.js';
+
+const git: SimpleGit = simpleGit();
 
 export const createCommit = async () => {
   try {
@@ -12,6 +15,7 @@ export const createCommit = async () => {
         type: 'list',
         name: 'commitType',
         message: 'What type of commit is this?',
+        loop: false,
         choices: [
           { name: 'feat: A new feature', value: 'feat' },
           { name: 'fix: A bug fix', value: 'fix' },
@@ -50,22 +54,18 @@ export const createCommit = async () => {
 
     // Step 3: Select files to commit
     const status = await git.status();
-    const { filesToAdd } = await inquirer.prompt([
-      {
-        type: 'checkbox',
-        name: 'filesToAdd',
-        message: 'Select the files to commit:',
-        choices: [
-          { name: 'all', value: '.', checked: true },
-          ...status.modified.map((file) => ({ name: file, value: file })),
-        ],
-      },
-    ]);
+    const filesToAdd = await checkbox({
+      message: 'Select the files to commit:',
+      choices: [
+        ...status.not_added.map((file) => ({ name: file, value: file })),
+        ...status.modified.map((file) => ({ name: file, value: file })),
+      ],
+      loop: false,
+      instructions: 'Space to select. A to select all. Enter to submit.',
+    });
 
     // Step 4: Add selected files
-    if (filesToAdd.includes('.')) {
-      await git.add('.');
-    } else if (filesToAdd.length > 0) {
+    if (filesToAdd.length > 0) {
       await git.add(filesToAdd);
     } else {
       console.log(chalk.yellow('No files selected for commit.'));
@@ -86,6 +86,7 @@ export const createCommit = async () => {
       ? `${commitType}(${affectedModule}): ${commitMessage}`
       : `${commitType}: ${commitMessage}`;
     await git.commit(fullCommitMessage);
+    console.log(chalk.green(`----------------------------------------`));
     console.log(chalk.green(`Committed with message: "${fullCommitMessage}"`));
   } catch (err) {
     console.error(chalk.red('Failed to create commit:'), err);
