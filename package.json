@@ -1,15 +1,15 @@
 {
-  "name": "xgit",
+  "name": "@olvrcc/xgit",
   "version": "0.1.0",
   "description": "A CLI tool for asing git flow and conventional commit workflows",
   "keywords": [],
   "author": "Cameron Olivier <cameronolivier@gmail.com> (https://olvr.cc)",
   "bugs": {
-    "url": "https://github.com/cameronolivier/cli-boilerplate/issues"
+    "url": "https://github.com/cameronolivier/xgit/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cameronolivier/cli-boilerplate.git"
+    "url": "git+https://github.com/cameronolivier/xgit.git"
   },
   "license": "MIT",
   "type": "module",
