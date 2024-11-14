@@ -53,14 +53,14 @@ export const createCommit = async () => {
     // Step 3: Select files to commit
     const status = await git.status();
     const filesToAdd = await checkbox({
-      message:
-        'Select the files to commit: Use <Space> to select. <Enter> to submit.',
+      message: 'Select the files to commit:',
       choices: [
         ...status.not_added.map((file) => ({ name: file, value: file })),
         ...status.modified.map((file) => ({ name: file, value: file })),
       ],
       loop: false,
-      instructions: 'use <Space> to select. <Enter> to submit.',
+      instructions:
+        'Use <Space> to select or press <a> to toggle all. Press <Enter> to submit.',
     });
 
     // Step 4: Add selected files
