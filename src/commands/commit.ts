@@ -1,4 +1,4 @@
-import { checkbox } from '@inquirer/prompts';
+import { checkbox, Separator } from '@inquirer/prompts';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { simpleGit, type SimpleGit } from 'simple-git';
@@ -55,12 +55,20 @@ export const createCommit = async () => {
     const filesToAdd = await checkbox({
       message: 'Select the files to commit:',
       choices: [
-        ...status.not_added.map((file) => ({ name: file, value: file })),
-        ...status.modified.map((file) => ({ name: file, value: file })),
+        ...status.modified.map((file) => ({
+          name: file,
+          value: file,
+          checked: true,
+        })),
+        new Separator(),
+        ...status.not_added.map((file) => ({
+          name: file,
+          value: file,
+          checked: true,
+        })),
       ],
       loop: false,
-      instructions:
-        'Use <Space> to select or press <a> to toggle all. Press <Enter> to submit.',
+      pageSize: 10,
     });
 
     // Step 4: Add selected files
