@@ -1,5 +1,11 @@
 # cli-boilerplate
 
+## 1.3.0
+
+### Minor Changes
+
+- 066086c: setting all files to checked by default, allowing default instructions for file selection, paginating files to 10 per page
+
 ## 1.2.2
 
 ### Patch Changes
